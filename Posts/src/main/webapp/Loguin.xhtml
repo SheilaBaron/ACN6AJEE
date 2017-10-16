@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html >
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<h:outputStylesheet library="css" name="style.css" />
+	<title><ui:insert name="title" /></title>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+	<ui:include src="template.xhtml"></ui:include>
+	<h:form class="form-horizontal">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="email">Usuario:</label>
+			<div class="col-sm-10">
+				<h:input type="email" class="form-control" placeholder="Usuario"
+					id="usuario" value="#{myMb.userName}" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="pwd">Password:</label>
+			<div class="col-sm-10">
+				<h:inputText class="form-control" placeholder="Pasword"
+					id="Password" value="#{myMb.password}" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<h:commandLink action="#{myMb.login()}" class="btn btn-default">
+				Ingresar
+				</h:commandLink>
+			</div>
+		</div>
+	</h:form>
+</h:body>
+</html>

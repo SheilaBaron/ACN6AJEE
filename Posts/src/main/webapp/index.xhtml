@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html >
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<h:outputStylesheet library="css" name="style.css" />
+	<title><ui:insert name="title" /></title>
+	<link type="text/css" rel="stylesheet"
+		href="/JavaServerFaces/faces/javax.faces.resource/style.css?ln=css" />
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+	<!-- Optional theme -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+	<ui:include src="template.xhtml"></ui:include>
+	<div class="col-sm-10">
+		<h2 align="center">
+			<a href="#">Muro General</a>
+		</h2>
+	</div>
+	<div class="container">
+
+		<article>
+			<section class="writer">
+				<h:form>
+					<h:inputText value="#{myMb.postContent}" />
+					<div class="buttons.writer">
+						<h:commandButton class="default" action="#{myMb.newPost()}">Publicar</h:commandButton>
+					</div>
+				</h:form>
+			</section>
+		</article>
+		<br> </br>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h2 class="page-header">Commentarios</h2>
+				<section class="comment-list">
+					<!-- First Comment -->
+					<!-- start loop table here -->
+					<h:dataTable value="#{myMb.getAllPost()}" var="p">
+						<article class="row">
+							<div class="col-md-10 col-sm-10">
+								<div class="panel panel-default arrow left">
+									<div class="panel-body">
+										<header class="text-left">
+											<div class="comment-user">
+												<i class="fa fa-user"></i>
+												<h:column>
+													#{p.user.userName}
+												</h:column>
+											</div>
+											<time class="comment-date" datetime="16-12-2014 01:05">
+												<i class="fa fa-clock-o"></i>
+												<h:column>
+													#{p.niceDate}
+												</h:column>
+											</time>
+										</header>
+										<div class="comment-post">
+											<p>
+												<h:column>
+													#{p.cotext}
+												</h:column>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<!-- end loop table here -->
+					</h:dataTable>
+				</section>
+			</div>
+		</div>
+	</div>
+
+</h:body>
+</html>

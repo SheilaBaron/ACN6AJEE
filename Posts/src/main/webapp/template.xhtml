@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html >
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<h:outputStylesheet library="css" name="style.css" />
+	<title><ui:insert name="title" /></title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+	<!-- Optional theme -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+	<div id="layout">
+		<nav id="header">
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="index.xhtml">Posteos</a>
+					</div>
+					<ul class="nav navbar-nav">
+						<li class="active"><h:link value="Inicio" outcome="index.xhtml" /></li>
+						<li><h:link value="Registro" outcome="registro.xhtml" /></li>
+						<li><h:link value="Ingresar" outcome="Loguin.xhtml" /></li>
+						<li><h:link value="Mi Cuenta" outcome="Profile.xhtml" /></li>
+						
+										
+					</ul>
+				</div>
+			</nav>			
+		</nav>
+		<div id="content">
+			<ui:insert name="content">
+			</ui:insert>
+		</div>
+	</div>
+</h:body>
+</html>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html >
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title><ui:insert name="title" /></title>
+
+	<h:outputStylesheet library="css" name="style.css" />
+	<link type="text/css" rel="stylesheet"
+		href="/JavaServerFaces/faces/javax.faces.resource/style.css?ln=css" />
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+	<ui:include src="template.xhtml"></ui:include>
+	<div class="container">
+		<div class="row">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4>Perfil de Usuario</h4>
+				</div>
+				<div class="panel-body">
+					<div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+						<img alt="User Pic"
+							src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
+							id="profile-image1" class="img-circle img-responsive"></img>
+
+
+					</div>
+					<div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+						<div class="container">
+							<h2>
+								<h:outputText value="#{myMb.currentUser.userName}" />
+							</h2>
+
+
+						</div>
+
+						<ul class="container details">
+							<li><p>
+									<span class="glyphicon glyphicon-thumbs-up"
+										style="width: 50px;"></span>Me Gusta
+								</p></li>
+							<li><p>
+									<span class="glyphicon glyphicon-thumbs-down"
+										style="width: 50px;"></span>No Me gusta
+								</p></li>
+							<li><p>
+									<span class="glyphicon glyphicon-align-justify"
+										style="width: 50px;"></span>Comentarios
+								</p></li>
+						</ul>
+
+						<div class="col-sm-5 col-xs-6 tital ">Fecha de ultimo
+							comentario: 15 Jun 2016</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h2 class="page-header">Commentarios</h2>
+				<section class="comment-list">
+					<h:dataTable value="#{myMb.getUserPost()}" var="p">
+						<!-- 1 Comment -->
+						<article class="row">
+							<div class="col-md-2 col-sm-2 hidden-xs">
+								<figure class="thumbnail">
+									<img class="img-responsive"
+										src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
+									<figcaption class="text-center">
+										<h:column>
+											#{p.user.userName}
+										</h:column>
+									</figcaption>
+								</figure>
+							</div>
+							<div class="col-md-10 col-sm-10">
+								<div class="panel panel-default arrow left">
+									<div class="panel-body">
+										<header class="text-left">
+											<div class="comment-user">
+												<i class="fa fa-user"></i>
+												<h:column>
+													#{p.user.userName}
+												</h:column>
+											</div>
+											<time class="comment-date" datetime="16-12-2014 01:05">
+												<i class="fa fa-clock-o"></i>
+												<h:column>
+													#{p.niceDate}
+												</h:column>
+											</time>
+										</header>
+										<div class="comment-post">
+											<p>
+												<h:column>
+													#{p.cotext}
+												</h:column>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+					</h:dataTable>
+				</section>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>
